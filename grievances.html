@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grievances — Stackly Grievance Backoffice</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/auth.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',()=>{if(!authProtectRoute())return;authApplyRBAC();});</script>
+</head>
+<body>
+
+<aside class="dashboard-sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="index.html" class="sidebar-logo"><img src="images/logo-stackly.webp" alt="Stackly" /></a><button class="sidebar-close" id="sidebarClose"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+  <div class="sidebar-user"><div class="sidebar-user-avatar" id="sb-avatar">U</div><div><div class="sidebar-user-name" id="sb-name">User</div><div class="sidebar-user-role" id="sb-role">Role</div><div class="sidebar-user-email" id="sb-email">email</div></div></div>
+  <nav class="sidebar-nav">
+    <div class="nav-label">Main Menu</div>
+    <a href="dashboard.html" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Dashboard</a>
+    <a href="grievances.html" class="sidebar-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Grievances</a>
+    <a href="settings.html" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg> Settings</a>
+    <div data-role="admin-only">
+      <div class="nav-label" style="margin-top:1rem;">Administration</div>
+      <a href="departments.html" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Departments</a>
+      <a href="users.html" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg> Users</a>
+      <a href="reports.html" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Reports</a>
+    </div>
+  </nav>
+  <div class="sidebar-footer"><button onclick="authLogout()" class="sidebar-link" style="width:100%;color:var(--danger);justify-content:center;border:1px solid rgba(239,68,68,0.2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Logout</button></div>
+</aside>
+
+<main class="dashboard-main">
+  <header class="dashboard-topbar">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <h1 class="dashboard-title">All Grievances</h1>
+    </div>
+    <div class="topbar-right"><span id="topbar-name" style="font-size:0.9rem;color:var(--gray-500);"></span><div class="topbar-avatar" id="topbarAvatar">U</div></div>
+  </header>
+
+  <div class="dashboard-content">
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <input type="text" class="form-control" placeholder="Search by ID, subject, or name..." id="searchGrievances" />
+      <select class="form-control" id="filterStatus">
+        <option value="">All Status</option>
+        <option value="pending">Pending</option>
+        <option value="processing">In Progress</option>
+        <option value="resolved">Resolved</option>
+        <option value="escalated">Escalated</option>
+      </select>
+      <select class="form-control" id="filterCategory">
+        <option value="">All Categories</option>
+        <option value="roads">Roads</option>
+        <option value="water">Water</option>
+        <option value="electricity">Electricity</option>
+        <option value="sanitation">Sanitation</option>
+        <option value="health">Health</option>
+        <option value="education">Education</option>
+        <option value="transport">Transport</option>
+      </select>
+    </div>
+
+    <!-- Table -->
+    <div class="dash-panel">
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Tracking ID</th>
+              <th>Subject</th>
+              <th>Filed By</th>
+              <th>Category</th>
+              <th>Department</th>
+              <th>Priority</th>
+              <th>Status</th>
+              <th>Filed Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong style="color:var(--teal);">GRV-2026-48723</strong></td><td>Pothole on MG Road near junction</td><td>Ankit Sharma</td><td>Roads</td><td>PWD</td><td><span class="status-badge status-escalated">Critical</span></td><td><span class="status-badge status-processing">In Progress</span></td><td>Aug 5, 2026</td></tr>
+            <tr><td><strong style="color:var(--teal);">GRV-2026-48719</strong></td><td>Water supply disruption in Ward 12</td><td>Priya Menon</td><td>Water</td><td>Water Board</td><td><span class="status-badge status-pending">Urgent</span></td><td><span class="status-badge status-pending">Pending</span></td><td>Aug 4, 2026</td></tr>
+            <tr><td><strong style="color:var(--teal);">GRV-2026-48715</strong></td><td>Streetlight not working on Station Rd</td><td>Ramesh Gupta</td><td>Electricity</td><td>EB</td><td><span class="status-badge status-resolved">Normal</span></td><td><span class="status-badge status-resolved">Resolved</span></td><td>Aug 3, 2026</td></tr>
+            <tr><td><strong style="color:var(--teal);">GRV-2026-48710</strong></td><td>Garbage not collected since 3 days</td><td>Sita Devi</td><td>Sanitation</td><td>Municipality</td><td><span class="status-badge status-resolved">Normal</span></td><td><span class="status-badge status-resolved">Resolved</span></td><td>Aug 2, 2026</td></tr>
+            <tr><td><strong style="color:var(--teal);">GRV-2026-48706</strong></td><td>Overflowing drain near public school</td><td>Mohammed Ali</td><td>Sanitation</td><td>Municipality</td><td><span class="status-badge status-escalated">Critical</span></td><td><span class="status-badge status-escalated">Escalated</span></td><td>Aug 1, 2026</td></tr>
+            <tr><td><strong style="color:var(--teal);">GRV-2026-48700</strong></td><td>Hospital staff negligence, emergency</td><td>Lakshmi R.</td><td>Health</td><td>Health Dept</td><td><span class="status-badge status-pending">Urgent</span></td><td><span class="status-badge status-processing">In Progress</span></td><td>Jul 30, 2026</td></tr>
+            <tr><td><strong style="color:var(--teal);">GRV-2026-48695</strong></td><td>Broken footpath on Market Street</td><td>Vikram Singh</td><td>Roads</td><td>PWD</td><td><span class="status-badge status-resolved">Normal</span></td><td><span class="status-badge status-resolved">Resolved</span></td><td>Jul 28, 2026</td></tr>
+            <tr><td><strong style="color:var(--teal);">GRV-2026-48690</strong></td><td>Erratic power cuts in Sector 7</td><td>Ananya Bhat</td><td>Electricity</td><td>EB</td><td><span class="status-badge status-pending">Urgent</span></td><td><span class="status-badge status-pending">Pending</span></td><td>Jul 27, 2026</td></tr>
+            <tr><td><strong style="color:var(--teal);">GRV-2026-48685</strong></td><td>Public bus route cancellation</td><td>Suresh K.</td><td>Transport</td><td>Transport Dept</td><td><span class="status-badge status-resolved">Normal</span></td><td><span class="status-badge status-processing">In Progress</span></td><td>Jul 25, 2026</td></tr>
+            <tr><td><strong style="color:var(--teal);">GRV-2026-48680</strong></td><td>Mid-day meal quality complaint</td><td>Kavitha M.</td><td>Education</td><td>Education Dept</td><td><span class="status-badge status-pending">Urgent</span></td><td><span class="status-badge status-escalated">Escalated</span></td><td>Jul 23, 2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="page-btn" disabled>&laquo;</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">4</button>
+        <button class="page-btn">5</button>
+        <button class="page-btn">&raquo;</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="toast-container" aria-live="polite"></div>
+<script src="js/main.js"></script>
+<script>
+  // Client-side search/filter
+  document.getElementById('searchGrievances')?.addEventListener('input', function() {
+    const q = this.value.toLowerCase();
+    document.querySelectorAll('tbody tr').forEach(row => {
+      row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+</script>
+</body>
+</html>

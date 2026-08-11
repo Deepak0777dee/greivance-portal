@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account — Stackly Grievance Portal</title>
+  <meta name="description" content="Create your free Stackly Grievance Portal account to start filing and tracking grievances." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="auth-page">
+    <div class="auth-left">
+      <div class="auth-card">
+        <a href="index.html"><img src="images/logo-stackly.webp" alt="Stackly" class="auth-logo" /></a>
+        <h2>Create Account</h2>
+        <p class="auth-subtitle">Register to file and track your grievances.</p>
+
+        <form id="signupForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name <span class="required">*</span></label>
+              <input type="text" class="form-control" id="signup-name" required minlength="3" maxlength="60" placeholder="John Doe" />
+              <div class="form-error"></div>
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" class="form-control" id="signup-phone" placeholder="+91 XXXXX XXXXX" />
+              <div class="form-error"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Email Address <span class="required">*</span></label>
+            <input type="email" class="form-control" id="signup-email" required placeholder="you@example.com" />
+            <div class="form-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label>Password <span class="required">*</span></label>
+            <div class="password-wrapper">
+              <input type="password" class="form-control" id="signup-password" required data-validate="password" placeholder="Min 8 chars, uppercase, number, special" />
+              <button type="button" class="password-toggle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <div class="password-strength">
+              <div class="strength-bar"></div>
+              <div class="strength-bar"></div>
+              <div class="strength-bar"></div>
+              <div class="strength-bar"></div>
+            </div>
+            <div class="form-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label>Confirm Password <span class="required">*</span></label>
+            <div class="password-wrapper">
+              <input type="password" class="form-control" id="signup-confirm" required data-validate="confirm-password" placeholder="Re-enter your password" />
+              <button type="button" class="password-toggle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <div class="form-error"></div>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" id="signup-terms" required />
+            <label for="signup-terms">I agree to the <a href="404.html" style="color:var(--teal);">Terms of Service</a> and <a href="404.html" style="color:var(--teal);">Privacy Policy</a>. <span class="required">*</span></label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:0.5rem;">
+            Create Account
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          </button>
+
+          <div id="signupError" style="display:none;margin-top:1rem;padding:0.75rem;background:var(--danger-bg);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius-sm);color:var(--danger);font-size:0.85rem;text-align:center;"></div>
+        </form>
+
+        <div class="auth-link">
+          Already have an account? <a href="login.html">Sign In</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-right">
+      <div class="auth-right-content">
+        <h2>Join Thousands of<br/>Active Citizens</h2>
+        <p>Create your free account and start making a difference in your community. Track every grievance until resolution.</p>
+        <div style="margin-top:2rem;">
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;text-align:left;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(13,148,136,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="color:var(--gray-300);font-size:0.9rem;">File grievances with supporting documents</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;text-align:left;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(13,148,136,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="color:var(--gray-300);font-size:0.9rem;">Track real-time status and progress</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;text-align:left;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(13,148,136,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="color:var(--gray-300);font-size:0.9rem;">Receive SMS and email notifications</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    if (authIsLoggedIn()) window.location.href = 'dashboard.html';
+
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('signup-name');
+      const email = document.getElementById('signup-email');
+      const phone = document.getElementById('signup-phone');
+      const password = document.getElementById('signup-password');
+      const confirm = document.getElementById('signup-confirm');
+      const terms = document.getElementById('signup-terms');
+      const errorDiv = document.getElementById('signupError');
+
+      let valid = true;
+      [name, email, password, confirm].forEach(input => {
+        if (!validateField(input)) valid = false;
+      });
+
+      if (!terms.checked) {
+        errorDiv.textContent = 'You must agree to the Terms of Service.';
+        errorDiv.style.display = 'block';
+        return;
+      }
+
+      if (!valid) return;
+
+      const result = authSignup(name.value.trim(), email.value.trim(), password.value, phone.value.trim());
+      if (result.success) {
+        window.location.href = 'dashboard.html';
+      } else {
+        errorDiv.textContent = result.message;
+        errorDiv.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

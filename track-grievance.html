@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Track Grievance — Stackly Public Grievance Portal</title>
+  <meta name="description" content="Track the status of your filed grievance using your unique tracking ID. Get real-time updates on the progress of your complaint." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div id="page-loader" role="status" aria-label="Loading"><div class="loader-spinner"></div></div>
+
+  <!-- Header -->
+  <header class="header" id="mainHeader">
+    <div class="container">
+      <a href="index.html" class="logo"><img src="images/logo-stackly.webp" alt="Stackly" /></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="file-grievance.html">File Grievance</a>
+        <a href="track-grievance.html" class="active">Track Status</a>
+        <a href="help-center.html">Help Center</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-right">
+        <a href="login.html" class="header-cta">Sign In</a>
+        <button class="ham-btn" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu">
+    <button class="mobile-close" aria-label="Close menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <img src="images/logo-stackly.webp" alt="Stackly" style="height:28px;filter:brightness(0) invert(1);margin-bottom:2rem;" />
+    <a href="index.html">Home</a><a href="file-grievance.html">File Grievance</a><a href="track-grievance.html">Track Status</a><a href="help-center.html">Help Center</a><a href="contact.html">Contact</a><a href="login.html" style="color:var(--teal-light);">Sign In</a>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label" style="color:var(--teal-light);">Real-Time Updates</span>
+      <h1>Track Your Grievance</h1>
+      <p>Enter your grievance tracking ID below to view the current status and timeline of your complaint.</p>
+    </div>
+  </section>
+
+  <!-- Track Section -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Search -->
+      <div class="track-search reveal">
+        <form id="trackForm">
+          <div class="search-wrapper">
+            <input type="text" class="form-control" id="trackInput" placeholder="Enter Tracking ID (e.g., GRV-2026-12345)" required />
+            <button type="submit" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- No Result -->
+      <div class="no-result reveal" style="text-align:center;display:none;" id="noResult">
+        <div style="width:70px;height:70px;border-radius:50%;background:var(--warning-bg);margin:0 auto 1.25rem;display:flex;align-items:center;justify-content:center;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>No Grievance Found</h3>
+        <p>Please check your tracking ID and try again.</p>
+      </div>
+
+      <!-- Result Card -->
+      <div class="track-result reveal" id="trackResult">
+        <div class="track-result-header">
+          <div>
+            <div class="track-id" id="resultId">GRV-2026-48723</div>
+            <p style="margin:0;font-size:0.85rem;color:var(--gray-400);">Filed on August 5, 2026</p>
+          </div>
+          <span class="status-badge status-processing">In Progress</span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;padding:1.25rem;background:var(--gray-50);border-radius:var(--radius-md);">
+          <div>
+            <strong style="font-size:0.75rem;color:var(--gray-400);text-transform:uppercase;">Category</strong>
+            <p style="margin:0;color:var(--navy);font-weight:500;">Roads & Infrastructure</p>
+          </div>
+          <div>
+            <strong style="font-size:0.75rem;color:var(--gray-400);text-transform:uppercase;">Department</strong>
+            <p style="margin:0;color:var(--navy);font-weight:500;">Public Works Department</p>
+          </div>
+          <div style="grid-column:1/-1;">
+            <strong style="font-size:0.75rem;color:var(--gray-400);text-transform:uppercase;">Subject</strong>
+            <p style="margin:0;color:var(--navy);font-weight:500;">Pothole on MG Road causing accidents near junction</p>
+          </div>
+        </div>
+
+        <h4 style="margin-bottom:1.5rem;color:var(--teal);">Status Timeline</h4>
+
+        <div class="timeline">
+          <div class="timeline-item completed">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Aug 5, 2026 — 10:15 AM</div>
+            <div class="timeline-title">Grievance Submitted</div>
+            <p class="timeline-desc">Your grievance has been successfully registered in the system.</p>
+          </div>
+          <div class="timeline-item completed">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Aug 5, 2026 — 02:30 PM</div>
+            <div class="timeline-title">Assigned to Department</div>
+            <p class="timeline-desc">Routed to Public Works Department for review.</p>
+          </div>
+          <div class="timeline-item completed">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Aug 6, 2026 — 11:00 AM</div>
+            <div class="timeline-title">Under Review</div>
+            <p class="timeline-desc">Department officer has acknowledged and is reviewing the complaint.</p>
+          </div>
+          <div class="timeline-item active">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Aug 8, 2026 — 09:45 AM</div>
+            <div class="timeline-title">Action In Progress</div>
+            <p class="timeline-desc">Field team has been dispatched. Repair work is underway at the location.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Estimated: Aug 12, 2026</div>
+            <div class="timeline-title">Resolution</div>
+            <p class="timeline-desc">Expected completion and closure of the grievance.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Info Section -->
+      <div class="reveal" style="margin-top:4rem;">
+        <div class="text-center">
+          <span class="section-label">Need Help?</span>
+          <h2 class="section-title">Can't Find Your Tracking ID?</h2>
+          <p class="section-subtitle">Check your registered email for the confirmation message, or contact our support team.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:2rem;margin-top:2rem;" class="stagger-children">
+          <div class="feature-card reveal text-center">
+            <div class="feature-icon" style="background:var(--teal-glow);color:var(--teal);margin:0 auto 1rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <h4>Check Your Email</h4>
+            <p>Your tracking ID was sent to your registered email upon submission.</p>
+          </div>
+          <div class="feature-card reveal text-center">
+            <div class="feature-icon" style="background:var(--info-bg);color:var(--info);margin:0 auto 1rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <h4>Call Support</h4>
+            <p>Reach us at <a href="tel:+916758585497" style="color:var(--teal);font-weight:600;">+91 67585 85497</a> for assistance.</p>
+          </div>
+          <div class="feature-card reveal text-center">
+            <div class="feature-icon" style="background:var(--success-bg);color:var(--success);margin:0 auto 1rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            </div>
+            <h4>Live Chat</h4>
+            <p>Use our <a href="contact.html" style="color:var(--teal);font-weight:600;">contact form</a> to reach us 24/7.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><img src="images/logo-stackly.webp" alt="Stackly" /></a>
+          <p>Empowering citizens with a transparent, efficient, and accountable public grievance resolution platform.</p>
+          <div class="footer-social">
+            <a href="404.html" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+            <a href="404.html" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+            <a href="404.html" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2 29 29 0 00-.46 5.33 29 29 0 00.46 5.33 2.78 2.78 0 001.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.33 29 29 0 00-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+            <a href="404.html" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="file-grievance.html">File Grievance</a></li><li><a href="track-grievance.html">Track Status</a></li><li><a href="help-center.html">Help Center</a></li></ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul><li><a href="contact.html">Contact Us</a></li><li><a href="404.html">Citizen Charter</a></li><li><a href="404.html">RTI Information</a></li><li><a href="404.html">Sitemap</a></li></ul></div>
+        <div class="footer-col"><h4>Contact Info</h4><ul>
+          <li><a href="404.html" style="display:flex;align-items:flex-start;gap:0.5rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-top:3px;flex-shrink:0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>MMR Complex, Chinna Thirupathi, Salem, TN 636008, India</a></li>
+          <li><a href="mailto:info@thestackly.com" style="display:flex;align-items:center;gap:0.5rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@thestackly.com</a></li>
+          <li><a href="tel:+916758585497" style="display:flex;align-items:center;gap:0.5rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>+91 67585 85497</a></li>
+        </ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly Grievance Portal. All Rights Reserved.</p>
+        <div class="footer-bottom-links"><a href="404.html">Privacy Policy</a><a href="404.html">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

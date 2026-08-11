@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Management — Stackly Grievance Backoffice</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/auth.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',()=>{if(!authProtectRoute('admin'))return;authApplyRBAC();});</script>
+</head>
+<body>
+
+<aside class="dashboard-sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="index.html" class="sidebar-logo"><img src="images/logo-stackly.webp" alt="Stackly" /></a><button class="sidebar-close" id="sidebarClose"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+  <div class="sidebar-user"><div class="sidebar-user-avatar" id="sb-avatar">U</div><div><div class="sidebar-user-name" id="sb-name">User</div><div class="sidebar-user-role" id="sb-role">Role</div><div class="sidebar-user-email" id="sb-email">email</div></div></div>
+  <nav class="sidebar-nav">
+    <div class="nav-label">Main Menu</div>
+    <a href="dashboard.html" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Dashboard</a>
+    <a href="grievances.html" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Grievances</a>
+    <a href="settings.html" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg> Settings</a>
+    <div data-role="admin-only">
+      <div class="nav-label" style="margin-top:1rem;">Administration</div>
+      <a href="departments.html" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> Departments</a>
+      <a href="users.html" class="sidebar-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Users</a>
+      <a href="reports.html" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Reports</a>
+    </div>
+  </nav>
+  <div class="sidebar-footer"><button onclick="authLogout()" class="sidebar-link" style="width:100%;color:var(--danger);justify-content:center;border:1px solid rgba(239,68,68,0.2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Logout</button></div>
+</aside>
+
+<main class="dashboard-main">
+  <header class="dashboard-topbar">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <h1 class="dashboard-title">User Management</h1>
+    </div>
+    <div class="topbar-right"><span id="topbar-name" style="font-size:0.9rem;color:var(--gray-500);"></span><div class="topbar-avatar" id="topbarAvatar">U</div></div>
+  </header>
+
+  <div class="dashboard-content">
+    <div class="dash-stats-grid">
+      <div class="dash-stat-card"><div class="dash-stat-icon" style="background:var(--teal-glow);color:var(--teal);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="dash-stat-info"><h4>Total Users</h4><div class="val">3,847</div></div></div>
+      <div class="dash-stat-card"><div class="dash-stat-icon" style="background:var(--info-bg);color:var(--info);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="dash-stat-info"><h4>Admins</h4><div class="val">12</div></div></div>
+      <div class="dash-stat-card"><div class="dash-stat-icon" style="background:var(--success-bg);color:var(--success);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><div class="dash-stat-info"><h4>Citizens</h4><div class="val">3,835</div></div></div>
+      <div class="dash-stat-card"><div class="dash-stat-icon" style="background:var(--warning-bg);color:var(--warning);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="dash-stat-info"><h4>New This Month</h4><div class="val">186</div></div></div>
+    </div>
+
+    <div class="filter-bar">
+      <input type="text" class="form-control" placeholder="Search users by name or email..." id="searchUsers" />
+      <select class="form-control">
+        <option value="">All Roles</option>
+        <option value="admin">Admin</option>
+        <option value="citizen">Citizen</option>
+      </select>
+      <button class="btn btn-sm btn-primary" onclick="showToast('Feature coming soon!','info')">+ Add User</button>
+    </div>
+
+    <div class="dash-panel">
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Role</th><th>Grievances</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Admin User</strong></td><td>admin@thestackly.com</td><td>+91 67585 85497</td><td><span class="status-badge status-escalated">Admin</span></td><td>—</td><td>Jan 15, 2026</td><td><span class="status-badge status-resolved">Active</span></td><td><button class="btn btn-sm btn-outline" onclick="showToast('Edit feature coming soon','info')">Edit</button></td></tr>
+            <tr><td><strong>Rajesh Kumar</strong></td><td>citizen@thestackly.com</td><td>+91 98765 43210</td><td><span class="status-badge status-processing">Citizen</span></td><td>5</td><td>Mar 22, 2026</td><td><span class="status-badge status-resolved">Active</span></td><td><button class="btn btn-sm btn-outline" onclick="showToast('Edit feature coming soon','info')">Edit</button></td></tr>
+            <tr><td><strong>Ankit Sharma</strong></td><td>ankit.sharma@email.com</td><td>+91 87654 32109</td><td><span class="status-badge status-processing">Citizen</span></td><td>3</td><td>Apr 10, 2026</td><td><span class="status-badge status-resolved">Active</span></td><td><button class="btn btn-sm btn-outline" onclick="showToast('Edit feature coming soon','info')">Edit</button></td></tr>
+            <tr><td><strong>Priya Menon</strong></td><td>priya.menon@email.com</td><td>+91 76543 21098</td><td><span class="status-badge status-processing">Citizen</span></td><td>2</td><td>May 5, 2026</td><td><span class="status-badge status-resolved">Active</span></td><td><button class="btn btn-sm btn-outline" onclick="showToast('Edit feature coming soon','info')">Edit</button></td></tr>
+            <tr><td><strong>Ramesh Gupta</strong></td><td>ramesh.gupta@email.com</td><td>+91 65432 10987</td><td><span class="status-badge status-processing">Citizen</span></td><td>1</td><td>Jun 18, 2026</td><td><span class="status-badge status-pending">Inactive</span></td><td><button class="btn btn-sm btn-outline" onclick="showToast('Edit feature coming soon','info')">Edit</button></td></tr>
+            <tr><td><strong>Sita Devi</strong></td><td>sita.devi@email.com</td><td>+91 54321 09876</td><td><span class="status-badge status-processing">Citizen</span></td><td>4</td><td>Jul 2, 2026</td><td><span class="status-badge status-resolved">Active</span></td><td><button class="btn btn-sm btn-outline" onclick="showToast('Edit feature coming soon','info')">Edit</button></td></tr>
+            <tr><td><strong>Mohammed Ali</strong></td><td>mohammed.ali@email.com</td><td>+91 43210 98765</td><td><span class="status-badge status-processing">Citizen</span></td><td>2</td><td>Jul 15, 2026</td><td><span class="status-badge status-resolved">Active</span></td><td><button class="btn btn-sm btn-outline" onclick="showToast('Edit feature coming soon','info')">Edit</button></td></tr>
+            <tr><td><strong>K. Lakshmi</strong></td><td>k.lakshmi@thestackly.com</td><td>+91 32109 87654</td><td><span class="status-badge status-escalated">Admin</span></td><td>—</td><td>Feb 8, 2026</td><td><span class="status-badge status-resolved">Active</span></td><td><button class="btn btn-sm btn-outline" onclick="showToast('Edit feature coming soon','info')">Edit</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <button class="page-btn" disabled>&laquo;</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">&raquo;</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="toast-container" aria-live="polite"></div>
+<script src="js/main.js"></script>
+<script>
+  document.getElementById('searchUsers')?.addEventListener('input', function() {
+    const q = this.value.toLowerCase();
+    document.querySelectorAll('tbody tr').forEach(row => {
+      row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Departments — Stackly Grievance Backoffice</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/auth.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',()=>{if(!authProtectRoute('admin'))return;authApplyRBAC();});</script>
+</head>
+<body>
+
+<aside class="dashboard-sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="index.html" class="sidebar-logo"><img src="images/logo-stackly.webp" alt="Stackly" /></a><button class="sidebar-close" id="sidebarClose"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+  <div class="sidebar-user"><div class="sidebar-user-avatar" id="sb-avatar">U</div><div><div class="sidebar-user-name" id="sb-name">User</div><div class="sidebar-user-role" id="sb-role">Role</div><div class="sidebar-user-email" id="sb-email">email</div></div></div>
+  <nav class="sidebar-nav">
+    <div class="nav-label">Main Menu</div>
+    <a href="dashboard.html" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Dashboard</a>
+    <a href="grievances.html" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Grievances</a>
+    <a href="settings.html" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg> Settings</a>
+    <div data-role="admin-only">
+      <div class="nav-label" style="margin-top:1rem;">Administration</div>
+      <a href="departments.html" class="sidebar-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Departments</a>
+      <a href="users.html" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Users</a>
+      <a href="reports.html" class="sidebar-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Reports</a>
+    </div>
+  </nav>
+  <div class="sidebar-footer"><button onclick="authLogout()" class="sidebar-link" style="width:100%;color:var(--danger);justify-content:center;border:1px solid rgba(239,68,68,0.2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Logout</button></div>
+</aside>
+
+<main class="dashboard-main">
+  <header class="dashboard-topbar">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <h1 class="dashboard-title">Departments</h1>
+    </div>
+    <div class="topbar-right"><span id="topbar-name" style="font-size:0.9rem;color:var(--gray-500);"></span><div class="topbar-avatar" id="topbarAvatar">U</div></div>
+  </header>
+
+  <div class="dashboard-content">
+    <div class="dash-stats-grid">
+      <div class="dash-stat-card"><div class="dash-stat-icon" style="background:var(--teal-glow);color:var(--teal);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div class="dash-stat-info"><h4>Total Departments</h4><div class="val">8</div></div></div>
+      <div class="dash-stat-card"><div class="dash-stat-icon" style="background:var(--success-bg);color:var(--success);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="dash-stat-info"><h4>Total Officers</h4><div class="val">42</div></div></div>
+      <div class="dash-stat-card"><div class="dash-stat-icon" style="background:var(--info-bg);color:var(--info);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="dash-stat-info"><h4>Avg Resolution</h4><div class="val">6.2 days</div></div></div>
+      <div class="dash-stat-card"><div class="dash-stat-icon" style="background:var(--warning-bg);color:var(--warning);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="dash-stat-info"><h4>Best Rate</h4><div class="val">96%</div></div></div>
+    </div>
+
+    <!-- Department Performance Chart -->
+    <div class="dash-row-full">
+      <div class="dash-panel">
+        <div class="dash-panel-header"><h3 class="dash-panel-title">Department Performance Comparison</h3></div>
+        <div class="chart-container" style="height:320px;"><canvas id="deptPerfChart"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Department Table -->
+    <div class="dash-row-full">
+      <div class="dash-panel">
+        <div class="dash-panel-header">
+          <h3 class="dash-panel-title">All Departments</h3>
+          <button class="btn btn-sm btn-primary" onclick="showToast('Feature coming soon!','info')">+ Add Department</button>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead><tr><th>Department</th><th>Head</th><th>Officers</th><th>Total Cases</th><th>Resolved</th><th>Pending</th><th>Resolution Rate</th><th>Avg Days</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Public Works Dept</strong></td><td>R. Sundaram</td><td>8</td><td>280</td><td>256</td><td>24</td><td><span class="status-badge status-resolved">91%</span></td><td>5.8</td></tr>
+              <tr><td><strong>Water Board</strong></td><td>K. Lakshmi</td><td>6</td><td>195</td><td>180</td><td>15</td><td><span class="status-badge status-resolved">92%</span></td><td>4.2</td></tr>
+              <tr><td><strong>Electricity Board</strong></td><td>S. Venkat</td><td>5</td><td>165</td><td>158</td><td>7</td><td><span class="status-badge status-resolved">96%</span></td><td>3.1</td></tr>
+              <tr><td><strong>Municipal Corporation</strong></td><td>A. Krishnan</td><td>10</td><td>310</td><td>275</td><td>35</td><td><span class="status-badge status-pending">89%</span></td><td>7.5</td></tr>
+              <tr><td><strong>Health Department</strong></td><td>Dr. M. Selvam</td><td>4</td><td>120</td><td>108</td><td>12</td><td><span class="status-badge status-resolved">90%</span></td><td>6.8</td></tr>
+              <tr><td><strong>Education Dept</strong></td><td>P. Revathi</td><td>3</td><td>85</td><td>80</td><td>5</td><td><span class="status-badge status-resolved">94%</span></td><td>8.2</td></tr>
+              <tr><td><strong>Transport Dept</strong></td><td>V. Raman</td><td>4</td><td>95</td><td>82</td><td>13</td><td><span class="status-badge status-pending">86%</span></td><td>9.1</td></tr>
+              <tr><td><strong>Vigilance</strong></td><td>N. Murugan</td><td>2</td><td>48</td><td>36</td><td>12</td><td><span class="status-badge status-escalated">75%</span></td><td>14.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="toast-container" aria-live="polite"></div>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    new Chart(document.getElementById('deptPerfChart'), {
+      type: 'bar',
+      data: {
+        labels: ['PWD', 'Water Board', 'EB', 'Municipality', 'Health', 'Education', 'Transport', 'Vigilance'],
+        datasets: [
+          { label: 'Resolved', data: [256, 180, 158, 275, 108, 80, 82, 36], backgroundColor: '#10b981', borderRadius: 4 },
+          { label: 'Pending', data: [24, 15, 7, 35, 12, 5, 13, 12], backgroundColor: '#f59e0b', borderRadius: 4 }
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, padding: 20 } } }, scales: { y: { beginAtZero: true, stacked: true, grid: { color: 'rgba(0,0,0,0.04)' } }, x: { stacked: true, grid: { display: false } } } }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stackly — Public Grievance Portal</title>
+  <meta name="description" content="Submit, track, and resolve public grievances efficiently. Your voice matters — Stackly ensures transparent and timely grievance resolution." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div id="page-loader" role="status" aria-label="Loading">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="mainHeader">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo-stackly.webp" alt="Stackly Grievance Portal" />
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="file-grievance.html">File Grievance</a>
+        <a href="track-grievance.html">Track Status</a>
+        <a href="help-center.html">Help Center</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-right">
+        <a href="login.html" class="header-cta">Sign In</a>
+        <button class="ham-btn" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu">
+    <button class="mobile-close" aria-label="Close menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img src="images/logo-stackly.webp" alt="Stackly" style="height:28px;filter:brightness(0) invert(1);margin-bottom:2rem;" />
+    <a href="index.html">Home</a>
+    <a href="file-grievance.html">File Grievance</a>
+    <a href="track-grievance.html">Track Status</a>
+    <a href="help-center.html">Help Center</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html" style="color:var(--teal-light);">Sign In</a>
+  </div>
+
+  <!-- ===== HERO SLIDER ===== -->
+  <section class="hero-slider" id="heroSlider">
+    <!-- Geometric Decorations -->
+    <div class="hero-geo hero-geo-1"></div>
+    <div class="hero-geo hero-geo-2"></div>
+    <div class="hero-geo hero-geo-3"></div>
+
+    <div class="hero-track">
+      <!-- Slide 1 -->
+      <div class="hero-slide active">
+        <div class="hero-slide-bg" style="background-image:url('images/hero-1.webp')"></div>
+        <div class="hero-slide-overlay"></div>
+        <div class="hero-slide-content">
+          <div class="hero-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Trusted by 50,000+ Citizens
+          </div>
+          <h1>Your Voice <span>Matters.</span><br />Report. Resolve. Reform.</h1>
+          <p>Submit public grievances transparently and track resolutions in real-time. We bridge the gap between citizens and government departments.</p>
+          <div class="hero-btns">
+            <a href="file-grievance.html" class="btn btn-primary">File a Grievance <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a href="track-grievance.html" class="btn-ghost">Track Status</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg" style="background-image:url('images/hero-2.webp')"></div>
+        <div class="hero-slide-overlay"></div>
+        <div class="hero-slide-content">
+          <div class="hero-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Average Resolution: 7 Days
+          </div>
+          <h1>Fast. Transparent. <span>Accountable.</span></h1>
+          <p>Every grievance receives a unique tracking ID. Monitor progress, receive updates, and hold departments accountable — all from one platform.</p>
+          <div class="hero-btns">
+            <a href="track-grievance.html" class="btn btn-primary">Track Your Grievance</a>
+            <a href="help-center.html" class="btn-ghost">How It Works</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg" style="background-image:url('images/hero-3.webp')"></div>
+        <div class="hero-slide-overlay"></div>
+        <div class="hero-slide-content">
+          <div class="hero-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            Built for Every Citizen
+          </div>
+          <h1>Building a <span>Better</span> Community Together</h1>
+          <p>From infrastructure issues to public service complaints — our portal categorizes, prioritizes, and routes your grievances to the right department.</p>
+          <div class="hero-btns">
+            <a href="file-grievance.html" class="btn btn-primary">Get Started</a>
+            <a href="contact.html" class="btn-ghost">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider Controls -->
+    <button class="slider-arrow slider-prev" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="slider-arrow slider-next" aria-label="Next slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
+    </button>
+
+    <!-- Slider Dots -->
+    <div class="slider-dots">
+      <button class="slider-dot active" aria-label="Slide 1"></button>
+      <button class="slider-dot" aria-label="Slide 2"></button>
+      <button class="slider-dot" aria-label="Slide 3"></button>
+    </div>
+  </section>
+
+  <!-- ===== STATS BAR ===== -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat-item">
+          <div class="stat-number" data-count="52480" data-suffix="+">0</div>
+          <div class="stat-label">Grievances Filed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="48920" data-suffix="+">0</div>
+          <div class="stat-label">Cases Resolved</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="93" data-suffix="%">0</div>
+          <div class="stat-label">Resolution Rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="7" data-suffix=" Days">0</div>
+          <div class="stat-label">Avg Resolution Time</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="section" style="background:var(--gray-50);">
+    <div class="container text-center">
+      <div class="reveal">
+        <span class="section-label">Simple Process</span>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Filing and tracking a grievance is simple. Follow these four easy steps to get your issue resolved.</p>
+      </div>
+
+      <div class="steps-grid stagger-children">
+        <div class="step-card reveal">
+          <div class="step-number">1</div>
+          <h4>Register / Login</h4>
+          <p>Create your free account or sign in to access the portal securely.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">2</div>
+          <h4>Submit Grievance</h4>
+          <p>Fill out the grievance form with details, category, and supporting documents.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">3</div>
+          <h4>Track Progress</h4>
+          <p>Use your unique tracking ID to monitor real-time status updates.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">4</div>
+          <h4>Get Resolution</h4>
+          <p>Receive notification when your grievance is addressed and resolved.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="section">
+    <div class="container text-center">
+      <div class="reveal">
+        <span class="section-label">Platform Features</span>
+        <h2 class="section-title">Why Choose Our Portal</h2>
+        <p class="section-subtitle">Built with transparency, speed, and citizen empowerment at its core.</p>
+      </div>
+
+      <div class="features-grid stagger-children">
+        <div class="feature-card reveal">
+          <div class="feature-icon" style="background:var(--teal-glow);color:var(--teal);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Secure & Private</h4>
+          <p>Your data is encrypted and protected. Only authorized personnel can access grievance details.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon" style="background:var(--info-bg);color:var(--info);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h4>Real-Time Tracking</h4>
+          <p>Get instant updates on your grievance status. Know exactly where your complaint stands at every stage.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon" style="background:var(--success-bg);color:var(--success);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h4>Quick Resolution</h4>
+          <p>Smart routing ensures your grievance reaches the right department for faster action and resolution.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon" style="background:var(--warning-bg);color:var(--warning);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h4>Document Upload</h4>
+          <p>Attach supporting documents, images, and evidence to strengthen your grievance submission.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon" style="background:var(--danger-bg);color:var(--danger);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+          </div>
+          <h4>SMS & Email Alerts</h4>
+          <p>Stay informed with automatic notifications at every stage of your grievance journey.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon" style="background:rgba(139,92,246,0.1);color:#8b5cf6;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h4>Analytics Dashboard</h4>
+          <p>Administrators can view detailed analytics on grievance trends, department performance, and resolution metrics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RECENT UPDATES ===== -->
+  <section class="section" style="background:var(--gray-50);">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Latest Activity</span>
+        <h2 class="section-title">Recent Resolutions</h2>
+        <p class="section-subtitle">See how we're making a difference — real grievances, real resolutions.</p>
+      </div>
+
+      <div class="testimonials-grid stagger-children" style="margin-top: 2rem;">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"The pothole on MG Road that was causing accidents for months was fixed within 5 days of filing my complaint. Impressive response!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">A</div>
+            <div>
+              <div class="testimonial-name">Ankit Sharma</div>
+              <div class="testimonial-role">Road Infrastructure — Resolved</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"Water supply irregularities in our ward were addressed after I filed a grievance. The department contacted me within 48 hours."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">P</div>
+            <div>
+              <div class="testimonial-name">Priya Menon</div>
+              <div class="testimonial-role">Water Supply — Resolved</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"The streetlights in our colony were non-functional for weeks. Filed a complaint here and they were repaired in just 3 days."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">R</div>
+            <div>
+              <div class="testimonial-name">Ramesh Gupta</div>
+              <div class="testimonial-role">Electricity — Resolved</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA SECTION ===== -->
+  <section class="cta-section section">
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2>Ready to Make Your Voice Heard?</h2>
+        <p>Join thousands of citizens who have successfully resolved their grievances through our platform. It takes less than 5 minutes.</p>
+        <div class="cta-btns">
+          <a href="file-grievance.html" class="btn btn-primary">File a Grievance Now</a>
+          <a href="help-center.html" class="btn btn-outline" style="color:var(--white);border-color:rgba(255,255,255,0.2);">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><img src="images/logo-stackly.webp" alt="Stackly" /></a>
+          <p>Empowering citizens with a transparent, efficient, and accountable public grievance resolution platform.</p>
+          <div class="footer-social">
+            <a href="404.html" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+            <a href="404.html" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+            <a href="404.html" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2 29 29 0 00-.46 5.33 29 29 0 00.46 5.33 2.78 2.78 0 001.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.33 29 29 0 00-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+            <a href="404.html" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="file-grievance.html">File Grievance</a></li>
+            <li><a href="track-grievance.html">Track Status</a></li>
+            <li><a href="help-center.html">Help Center</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="404.html">Citizen Charter</a></li>
+            <li><a href="404.html">RTI Information</a></li>
+            <li><a href="404.html">Sitemap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <ul>
+            <li>
+              <a href="404.html" style="display:flex;align-items:flex-start;gap:0.5rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-top:3px;flex-shrink:0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                MMR Complex, Chinna Thirupathi, Salem, TN 636008, India
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@thestackly.com" style="display:flex;align-items:center;gap:0.5rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                info@thestackly.com
+              </a>
+            </li>
+            <li>
+              <a href="tel:+916758585497" style="display:flex;align-items:center;gap:0.5rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                +91 67585 85497
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly Grievance Portal. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
