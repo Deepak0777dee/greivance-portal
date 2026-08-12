@@ -100,7 +100,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  color: var(--navy);
+  color: var(--white);
   line-height: 1.2;
   font-weight: 700;
 }
@@ -319,10 +319,10 @@ p { color: var(--gray-500); line-height: 1.8; }
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-sm);
-  color: var(--navy);
+  color: var(--white);
   transition: var(--transition);
 }
-.ham-btn:hover { background: var(--gray-100); }
+.ham-btn:hover { background: rgba(255,255,255,0.1); }
 .ham-btn svg { width: 22px; height: 22px; }
 
 /* Mobile Menu Overlay */
@@ -841,7 +841,7 @@ p { color: var(--gray-500); line-height: 1.8; }
   margin-bottom: 1.5rem;
 }
 
-.footer-brand .logo img { filter: brightness(0) invert(1); height: 30px; margin-bottom: 0.5rem; }
+.footer-brand .logo img { height: 30px; margin-bottom: 0.5rem; }
 
 .footer-social {
   display: flex;
@@ -1492,6 +1492,11 @@ select.form-control {
   border: 1px solid var(--gray-100);
   box-shadow: var(--shadow-lg);
 }
+
+
+.auth-back-btn { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--gray-500); font-size: 0.9rem; font-weight: 500; text-decoration: none; margin-bottom: 1.5rem; transition: var(--transition); }
+.auth-back-btn:hover { color: var(--teal); }
+.auth-back-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
 
 .auth-logo { display: block; height: 30px; margin-bottom: 2rem; }
 
@@ -2305,6 +2310,8 @@ select.form-control {
 
 /* Tablet */
 @media (max-width: 768px) {
+  .vision-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .vision-image { margin-top: 1rem; }
   .nav-links { display: none; }
   .header-cta { display: none; }
   .ham-btn { display: flex; }
@@ -2387,4 +2394,11 @@ select.form-control {
 @media print {
   .header, .footer, .hero-slider, #page-loader, .slider-arrow, .slider-dots { display: none; }
   .section { padding: 1rem 0; }
+}
+
+
+/* Fix Edge Password Eye Overlap */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none !important;
 }
