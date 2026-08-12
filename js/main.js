@@ -240,8 +240,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Phone
     if (!errorMsg && input.type === 'tel' && value) {
-      const phoneRegex = /^[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,9}$/;
-      if (!phoneRegex.test(value)) errorMsg = 'Please enter a valid phone number.';
+      const phoneRegex = /^\d{10}$/;
+      if (!phoneRegex.test(value)) errorMsg = 'Please enter a valid 10-digit phone number.';
     }
 
     // Password
@@ -287,6 +287,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Real-time validation on blur and input
   document.querySelectorAll('.form-control').forEach(input => {
+    // Prevent numbers in name fields
+    if (input.id && input.id.toLowerCase().includes('name')) {
+      input.addEventListener('input', (e) => {
+        if (/[0-9]/.test(e.target.value)) {
+          e.target.value = e.target.value.replace(/[0-9]/g, '');
+        }
+      });
+    }
+
     input.addEventListener('blur', () => validateField(input));
     input.addEventListener('input', () => {
       if (input.classList.contains('invalid')) validateField(input);

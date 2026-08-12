@@ -89,11 +89,6 @@
         <div class="progress-line"></div>
         <div class="progress-step">
           <div class="progress-circle">2</div>
-          <span class="progress-label">Grievance Details</span>
-        </div>
-        <div class="progress-line"></div>
-        <div class="progress-step">
-          <div class="progress-circle">3</div>
           <span class="progress-label">Review & Submit</span>
         </div>
       </div>
@@ -121,7 +116,7 @@
             <div class="form-row">
               <div class="form-group">
                 <label>Phone Number <span class="required">*</span></label>
-                <input type="tel" class="form-control" id="fg-phone" required placeholder="+91 XXXXX XXXXX" />
+                <input type="tel" class="form-control" id="fg-phone" required placeholder="10-digit number" />
                 <div class="form-error"></div>
               </div>
               <div class="form-group">
@@ -140,98 +135,14 @@
             <div class="step-actions">
               <div></div>
               <button type="button" class="btn btn-primary" onclick="nextStep()">
-                Next Step
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Step 2: Grievance Details -->
-          <div class="step-panel" id="step2">
-            <h3 style="margin-bottom:1.5rem;">Grievance Details</h3>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label>Category <span class="required">*</span></label>
-                <select class="form-control" id="fg-category" required>
-                  <option value="">Select Category</option>
-                  <option value="roads">Roads & Infrastructure</option>
-                  <option value="water">Water Supply</option>
-                  <option value="electricity">Electricity</option>
-                  <option value="sanitation">Sanitation & Waste</option>
-                  <option value="health">Public Health</option>
-                  <option value="education">Education</option>
-                  <option value="transport">Public Transport</option>
-                  <option value="corruption">Corruption</option>
-                  <option value="other">Other</option>
-                </select>
-                <div class="form-error"></div>
-              </div>
-              <div class="form-group">
-                <label>Department <span class="required">*</span></label>
-                <select class="form-control" id="fg-department" required>
-                  <option value="">Select Department</option>
-                  <option value="pwd">Public Works Department</option>
-                  <option value="water-board">Water Board</option>
-                  <option value="electricity-board">Electricity Board</option>
-                  <option value="municipality">Municipal Corporation</option>
-                  <option value="health-dept">Health Department</option>
-                  <option value="education-dept">Education Department</option>
-                  <option value="transport-dept">Transport Department</option>
-                  <option value="vigilance">Vigilance & Anti-Corruption</option>
-                  <option value="other">Other</option>
-                </select>
-                <div class="form-error"></div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>Subject <span class="required">*</span></label>
-              <input type="text" class="form-control" id="fg-subject" required minlength="10" maxlength="150" placeholder="Brief subject of your grievance" />
-              <div class="form-error"></div>
-            </div>
-
-            <div class="form-group">
-              <label>Description <span class="required">*</span></label>
-              <textarea class="form-control" id="fg-description" required minlength="30" maxlength="2000" rows="6" placeholder="Provide a detailed description of your grievance. Include dates, locations, and any relevant information..."></textarea>
-              <div class="form-error"></div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label>Priority</label>
-                <select class="form-control" id="fg-priority">
-                  <option value="normal">Normal</option>
-                  <option value="urgent">Urgent</option>
-                  <option value="critical">Critical</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Location / Landmark</label>
-                <input type="text" class="form-control" id="fg-location" placeholder="e.g., Near MG Road Junction" />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>Upload Supporting Documents</label>
-              <input type="file" class="form-control" id="fg-files" accept=".pdf,.jpg,.jpeg,.png,.webp,.doc,.docx" multiple style="padding:0.5rem;" />
-              <p style="font-size:0.8rem;color:var(--gray-400);margin-top:0.3rem;">Accepted: PDF, JPG, PNG, WEBP, DOC. Max 5MB each.</p>
-            </div>
-
-            <div class="step-actions">
-              <button type="button" class="btn btn-outline" onclick="prevStep()">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-                Previous
-              </button>
-              <button type="button" class="btn btn-primary" onclick="nextStep()">
                 Review & Submit
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </button>
             </div>
           </div>
 
-          <!-- Step 3: Review & Submit -->
-          <div class="step-panel" id="step3">
+          <!-- Step 2: Review & Submit -->
+          <div class="step-panel" id="step2">
             <h3 style="margin-bottom:1.5rem;">Review & Submit</h3>
             <p style="margin-bottom:1.5rem;">Please review your grievance details below before submitting.</p>
 
@@ -245,15 +156,7 @@
               </div>
             </div>
 
-            <div style="background:var(--gray-50);padding:1.5rem;border-radius:var(--radius-md);margin-bottom:1.5rem;">
-              <h4 style="margin-bottom:1rem;color:var(--teal);">Grievance Details</h4>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
-                <div><strong style="font-size:0.8rem;color:var(--gray-400);">Category</strong><p id="review-category" style="margin:0;color:var(--navy);font-weight:500;">—</p></div>
-                <div><strong style="font-size:0.8rem;color:var(--gray-400);">Department</strong><p id="review-department" style="margin:0;color:var(--navy);font-weight:500;">—</p></div>
-                <div style="grid-column:1/-1;"><strong style="font-size:0.8rem;color:var(--gray-400);">Subject</strong><p id="review-subject" style="margin:0;color:var(--navy);font-weight:500;">—</p></div>
-                <div style="grid-column:1/-1;"><strong style="font-size:0.8rem;color:var(--gray-400);">Description</strong><p id="review-description" style="margin:0;color:var(--navy);font-weight:500;font-size:0.9rem;">—</p></div>
-              </div>
-            </div>
+            
 
             <div class="form-check">
               <input type="checkbox" id="fg-agree" required />
@@ -361,17 +264,13 @@
       let currentIdx = 0;
       currentPanels.forEach((p, i) => { if (p.classList.contains('active')) currentIdx = i; });
 
-      if (currentIdx === 1) {
+      if (currentIdx === 0) {
         // Moving to review step
         document.getElementById('review-name').textContent = document.getElementById('fg-name').value || '—';
         document.getElementById('review-email').textContent = document.getElementById('fg-email').value || '—';
         document.getElementById('review-phone').textContent = document.getElementById('fg-phone').value || '—';
         document.getElementById('review-address').textContent = document.getElementById('fg-address').value || '—';
-        document.getElementById('review-category').textContent = document.getElementById('fg-category').selectedOptions[0]?.text || '—';
-        document.getElementById('review-department').textContent = document.getElementById('fg-department').selectedOptions[0]?.text || '—';
-        document.getElementById('review-subject').textContent = document.getElementById('fg-subject').value || '—';
-        document.getElementById('review-description').textContent = document.getElementById('fg-description').value || '—';
-      }
+                                      }
       originalNextStep();
     };
 
