@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
         l.classList.toggle('completed', i < step);
       });
       currentStep = step;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // window.scrollTo({ top: 0, behavior: 'smooth' }); // Removed to prevent scrolling to top
     };
 
     window.nextStep = () => goToStep(currentStep + 1);

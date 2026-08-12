@@ -154,7 +154,7 @@
 
       const result = authSignup(name.value.trim(), email.value.trim(), password.value, phone.value.trim(), role.value);
       if (result.success) {
-        window.location.href = 'dashboard.html';
+        window.location.href = 'login.html';
       } else {
         errorDiv.textContent = result.message;
         errorDiv.style.display = 'block';

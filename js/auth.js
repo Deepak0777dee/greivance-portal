@@ -55,7 +55,7 @@ function authSignup(name, email, password, phone, role = 'citizen') {
   users.push(newUser);
   saveUsers(users);
   const session = { id: newUser.id, name: newUser.name, email: newUser.email, role: newUser.role, phone: newUser.phone };
-  localStorage.setItem(AUTH_KEY, JSON.stringify(session));
+  return { success: true, user: session };
   return { success: true, user: session };
 }
 

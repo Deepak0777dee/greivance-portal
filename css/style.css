@@ -2312,6 +2312,8 @@ select.form-control {
 @media (max-width: 768px) {
   .vision-grid { grid-template-columns: 1fr; gap: 2rem; }
   .vision-image { margin-top: 1rem; }
+  .transparency-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .transparency-image { margin-top: 1rem; }
   .nav-links { display: none; }
   .header-cta { display: none; }
   .ham-btn { display: flex; }
