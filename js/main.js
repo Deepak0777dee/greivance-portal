@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---- Scroll Reveal Animations ----
-  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-up');
 
   if (revealElements.length > 0) {
     const revealObserver = new IntersectionObserver((entries) => {
@@ -111,6 +111,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
     revealElements.forEach(el => revealObserver.observe(el));
+  }
+
+  // ---- Journey Timeline Animation ----
+  const journeyTimeline = document.getElementById('journeyTimeline');
+  const journeyLineFill = document.getElementById('journeyLineFill');
+  if (journeyTimeline && journeyLineFill) {
+    window.addEventListener('scroll', () => {
+      const rect = journeyTimeline.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      if (rect.top < windowHeight * 0.8) {
+        let fillPercentage = ((windowHeight * 0.8 - rect.top) / rect.height) * 100;
+        fillPercentage = Math.max(0, Math.min(100, fillPercentage));
+        journeyLineFill.style.height = `${fillPercentage}%`;
+      }
+    }, { passive: true });
   }
 
   // ---- Stagger Children Delay ----

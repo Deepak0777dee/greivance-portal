@@ -257,6 +257,39 @@
     </div>
   </section>
 
+  <!-- ===== DEPARTMENT DIRECTORY ===== -->
+  <section class="section" style="background:var(--white); padding-bottom: 2rem;">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Quick Reference</span>
+        <h2 class="section-title">Department Directory</h2>
+        <p class="section-subtitle" style="margin-bottom:3rem;">If you have a critical emergency, please contact these departments directly.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 280px), 1fr));gap:2rem;" class="stagger-children">
+        <div class="feature-card reveal-up" style="border-left: 4px solid var(--teal);">
+          <h4 style="margin-bottom:0.25rem;">Public Works (PWD)</h4>
+          <p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:1rem;">Roads, bridges, and infrastructure emergencies.</p>
+          <a href="tel:1073" style="font-weight:600; color:var(--navy); font-size:1.1rem; text-decoration:none;">📞 1073</a>
+        </div>
+        <div class="feature-card reveal-up" style="border-left: 4px solid var(--info);">
+          <h4 style="margin-bottom:0.25rem;">Water Board</h4>
+          <p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:1rem;">Major pipeline bursts and contamination.</p>
+          <a href="tel:1916" style="font-weight:600; color:var(--navy); font-size:1.1rem; text-decoration:none;">📞 1916</a>
+        </div>
+        <div class="feature-card reveal-up" style="border-left: 4px solid var(--warning);">
+          <h4 style="margin-bottom:0.25rem;">Electricity Board</h4>
+          <p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:1rem;">Live wire hazards and area-wide blackouts.</p>
+          <a href="tel:1912" style="font-weight:600; color:var(--navy); font-size:1.1rem; text-decoration:none;">📞 1912</a>
+        </div>
+        <div class="feature-card reveal-up" style="border-left: 4px solid var(--danger);">
+          <h4 style="margin-bottom:0.25rem;">Health Department</h4>
+          <p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:1rem;">Medical emergencies and ambulance services.</p>
+          <a href="tel:108" style="font-weight:600; color:var(--navy); font-size:1.1rem; text-decoration:none;">📞 108</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Categories Grid -->
   <section class="section">
     <div class="container text-center">
@@ -267,33 +300,27 @@
       </div>
 
       <div class="features-grid stagger-children" style="margin-top:2rem;">
-        <div class="feature-card reveal">
-          <div class="feature-icon" style="background:var(--teal-glow);color:var(--teal);">🛣️</div>
+        <div class="feature-card category-card-bg reveal" style="background-image: url('images/cat-roads.webp');">
           <h4>Roads & Infrastructure</h4>
           <p>Potholes, damaged bridges, missing signage, road construction delays.</p>
         </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon" style="background:var(--info-bg);color:var(--info);">💧</div>
+        <div class="feature-card category-card-bg reveal" style="background-image: url('images/cat-water.webp');">
           <h4>Water Supply</h4>
           <p>Irregular supply, contamination, pipeline leaks, billing disputes.</p>
         </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon" style="background:var(--warning-bg);color:var(--warning);">⚡</div>
+        <div class="feature-card category-card-bg reveal" style="background-image: url('images/cat-electricity.webp');">
           <h4>Electricity</h4>
           <p>Power outages, faulty meters, streetlight issues, high billing.</p>
         </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon" style="background:var(--success-bg);color:var(--success);">🗑️</div>
+        <div class="feature-card category-card-bg reveal" style="background-image: url('images/cat-sanitation.webp');">
           <h4>Sanitation & Waste</h4>
           <p>Garbage collection, open drains, public toilet maintenance.</p>
         </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon" style="background:var(--danger-bg);color:var(--danger);">🏥</div>
+        <div class="feature-card category-card-bg reveal" style="background-image: url('images/cat-health.webp');">
           <h4>Public Health</h4>
           <p>Hospital services, medicine availability, vaccination drives.</p>
         </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon" style="background:rgba(139,92,246,0.1);color:#8b5cf6;">🎓</div>
+        <div class="feature-card category-card-bg reveal" style="background-image: url('images/cat-education.webp');">
           <h4>Education</h4>
           <p>School infrastructure, teacher shortage, mid-day meals quality.</p>
         </div>

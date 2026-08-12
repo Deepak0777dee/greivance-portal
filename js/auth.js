@@ -24,28 +24,31 @@ function saveUsers(users) {
   localStorage.setItem(USERS_DB_KEY, JSON.stringify(users));
 }
 
-function authLogin(email, password) {
+function authLogin(email, password, role = 'citizen') {
   const users = getUsers();
-  const user = users.find(u => u.email.toLowerCase() === email.toLowerCase() && u.password === password);
-  if (user) {
-    const session = { id: user.id, name: user.name, email: user.email, role: user.role, phone: user.phone };
-    localStorage.setItem(AUTH_KEY, JSON.stringify(session));
-    return { success: true, user: session };
+  let user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+  if (!user) {
+    user = { id: Date.now(), name: email.split('@')[0], email, password, role, phone: '' };
+    users.push(user);
+    saveUsers(users);
+  } else {
+    user.role = role; 
+    saveUsers(users);
   }
-  return { success: false, message: 'Invalid email or password.' };
+  const session = { id: user.id, name: user.name, email: user.email, role: user.role, phone: user.phone };
+  localStorage.setItem(AUTH_KEY, JSON.stringify(session));
+  return { success: true, user: session };
 }
 
-function authSignup(name, email, password, phone) {
+function authSignup(name, email, password, phone, role = 'citizen') {
   const users = getUsers();
-  if (users.find(u => u.email.toLowerCase() === email.toLowerCase())) {
-    return { success: false, message: 'An account with this email already exists.' };
-  }
+
   const newUser = {
     id: Date.now(),
     name,
     email,
     password,
-    role: 'citizen',
+    role: role,
     phone: phone || '',
     createdAt: new Date().toISOString().split('T')[0],
   };
